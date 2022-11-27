@@ -6,11 +6,7 @@ For this project I designed a VR boxing game, and the controller
 
 # Current progress
 ## VR Boxing Game
-The VR boxing game is almost complete, Also needed:
-1. main scene build
-2. Design of 300 balls out
-3. possible detail adjustments
-4. Unreal Engine link to Arduino fails
+
 ## Arduino/Controller
 ![PC的副本](https://user-images.githubusercontent.com/92038037/196718145-26e4e81f-4553-4adc-a904-639feb90c406.png)
 The transmission of vibration and heart rate data has been tested and fabricated, and the battery module has been designed. The following issues still need to be addressed.Problems to be solved：
