@@ -145,7 +145,6 @@ void loop()
   Serial.println();
 }
 ```
----
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ### Testing different parts of the hand 测试手部不同部位
 After testing the front of the wrist, the back of the wrist and the fingertips, it was concluded that the fingertip data was the most stable.
@@ -198,19 +197,22 @@ void Vibration()
 I found two types of vibration sensors, strapped them to the back of my finger by extension and invited other users to test them together.
 
 我找到两种类型的震动传感器，将其延长捆绑至手指背部，邀请其他用户一起进行测试。
+![221128-TheBoxingRoom-Layout-08](https://user-images.githubusercontent.com/92038037/204229180-a5dd21b7-2c5d-4141-add7-23df5814e0d7.png)
+![221128-TheBoxingRoom-Layout-07](https://user-images.githubusercontent.com/92038037/204229200-06abbac3-6adf-4945-950d-6685f5064fa4.png)
 
 
-
-https://user-images.githubusercontent.com/92038037/204218325-973b99e1-1e5f-4413-8a8f-653ea36336d2.mp4
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
+
+### Final results 最终结果
 The final result is that one linear resonant actuator works best, while two sensors cause too much vibration. According to the testers, the coreless vibration motor has a more intense vibration effect than the former, which does not feel like hitting the ball and is uncomfortable.
 
 最终得出结果为一个linear resonant actuator的传感器效果最好，两个传感器就会导致震动过于明显。根据测试者反馈coreless vibration motor的震动效果相比于前者比较激烈，不像是击打球的手感，震感不舒适。
 
+https://user-images.githubusercontent.com/92038037/204218325-973b99e1-1e5f-4413-8a8f-653ea36336d2.mp4
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
-# Final Arduino scource Code
-- [GitHub - scource Code]()
+# Final Arduino Code
+- [GitHub - Scource Code]()
 ```C++
 #include <Wire.h>
 #include "MAX30105.h"
@@ -300,15 +302,18 @@ void Vibration()
 ```
 
 # Circuit Design 电路设计
+![221128-TheBoxingRoom-Layout-09](https://user-images.githubusercontent.com/92038037/204229422-d27ca2ec-8b38-4981-987a-8414cd29b598.png)
+
 
 ### Battery 电池
 The Arduino is currently tested at 5V and to power the wearable I compared AA, AAA and coin cell batteries.
 In the end, I chose the CR2032 type of coin cell battery. Because of their small size, two coin cell batteries can deliver 9V, and with the addition of a mini560 buck module, the 9V can be reduced to 5V, and the batteries and buck module together are even smaller than two AAA batteries.
 Arduino目前测试的电压为5V。为了给穿戴设备配备电源，我比较了AA电池、AAA电池与纽扣电池。
 最后，选择了CR2032型号的纽扣电池。因为其体积小，2个纽扣电池的电压可以达到9V。再增加一个mini560降压模块，可以将9v降低至5v。而电池与降压模块合在一起的体积甚至比两节AAA电池还要小。
+![221128-TheBoxingRoom-Layout-10](https://user-images.githubusercontent.com/92038037/204229356-6427478f-804e-4559-8050-df1c309db63d.png)
+![221128-TheBoxingRoom-Layout-11](https://user-images.githubusercontent.com/92038037/204229446-ab4d981c-ee84-4774-ba61-f564091ced04.png)
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
-
----
 # Reason for final circuit adjustment 最终电路调整原因
 Later, during the testing of the link between Arduino and Unreal Engine, I found that the Unreal Engine plugin (SerialCOM) for linking to Arduino did not support Bluetooth links, only data port(COM). so I eventually changed the design of the project.
 之后在Arduino与Unreal Engine的链接测试中发现现有的Unreal Engine链接Arduino的插件（SerialCOM）不支持蓝牙链接，仅支持数据串口链接，所以最终更改了项目的设计方案。
