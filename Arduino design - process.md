@@ -319,7 +319,9 @@ Arduino目前测试的电压为5V。为了给穿戴设备配备电源，我比�
 
 # Reason for final circuit adjustment 最终电路调整原因
 Later, during the testing of the link between Arduino and Unreal Engine, I found that the Unreal Engine plugin (SerialCOM) for linking to Arduino did not support Bluetooth links, only data port(COM). so I eventually changed the design of the project.
+
 之后在Arduino与Unreal Engine的链接测试中发现现有的Unreal Engine链接Arduino的插件（SerialCOM）不支持蓝牙链接，仅支持数据串口链接，所以最终更改了项目的设计方案。
+![串口 (2)](https://user-images.githubusercontent.com/92038037/204265019-7e1112ee-9577-4f05-b361-f1142a4e226f.png)
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ### Arduino designs(Current) 目前Arduino设计
 
