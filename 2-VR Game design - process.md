@@ -116,6 +116,7 @@ In the UE I set up 6 launch points and the spheres/bombs/walls will be launched 
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 ![09F7C8F6-1DF7-42FD-B7F5-05FA9D9C8009](https://user-images.githubusercontent.com/92038037/204280586-1de0c8d7-1a3b-4402-8966-30b2cc33cd9e.png)
 
+
 ## Blueprint
 Once this system has been written, I will set up a list of launches in "Details" for each ball and its launch position. This blueprint will generate one sphere at a time, and this blueprint will keep cycling. The list of balls I have set up will be launched one by one.
 
@@ -128,6 +129,10 @@ Here is a blueprint of the sphere launch interval, the value affected by heart r
 这里是球体发射间隔的蓝图，心率影响的数值就是发球的时间间隔
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 ![发射器2](https://user-images.githubusercontent.com/92038037/204286025-9d5f1926-c873-4fae-bab0-e4ebe19fb462.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+## Launch list 发射列表
+![VRGame_Orlando - Unreal Editor 2022_11_28 12_49_22](https://user-images.githubusercontent.com/92038037/204325191-2552de5a-2b34-4d37-851b-18584756268b.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 # Scoring system 计分系统
