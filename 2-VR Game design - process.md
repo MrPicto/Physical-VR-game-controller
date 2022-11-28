@@ -140,6 +140,9 @@ Similarly when a hand comes into contact with a bomb, it is sent to the GameUI b
 游戏系统会知道总共要出多少球体，比如我设置了200个球体，那么总积分就是2000分。如果没有击中一个球就会扣10分。那么游戏是怎么知道玩家没有达到球体呢？
 是因为我在玩家的背后设置一个隐形墙。如果检测到球体，就说明玩家没有击中这个球体，combo会清零，积分会扣10分。然后这个数据会在游戏结束后发送到EndUI的蓝图中，呈现最后的积分。
 同样当手部接触到炸弹，也会发送到EndUI的蓝图中一起算分数。
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![221128-TheBoxingRoom-Layout-16](https://user-images.githubusercontent.com/92038037/204324665-02616413-fb0e-4cd1-b459-0cbe794a5b60.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 ## Blueprint
 GameUI's are responsible for scoring and sending scores to EndUI once they have been calculated
@@ -208,6 +211,7 @@ Set the time interval between balls coming out of the launcher by different hear
 The UE sends the string "0" to the Arduino when the VRHand overlaps the Vibration sphere of the ball, and the Arduino vibrates for 0.5 seconds when it receives the "0".
 VRHand 在接触到球体的Vibration sphere时，UE会发送字符串“0”到Arduino，Arduino在收到“0”时会震动0.5秒。
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![0ACDF384-B652-46E3-8A6A-240706504085](https://user-images.githubusercontent.com/92038037/204323946-df5fc3d2-fdb3-4376-a96d-349902aa1186.png)
 ![221128-TheBoxingRoom-Layout-13](https://user-images.githubusercontent.com/92038037/204309217-e09654d1-b5de-469c-84dc-7519ddeb58ac.png)
 ![震动BP](https://user-images.githubusercontent.com/92038037/204293611-c7bd508f-cf59-4251-a825-da57d8bd5871.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
