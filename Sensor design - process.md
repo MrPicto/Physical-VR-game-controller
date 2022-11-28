@@ -191,14 +191,116 @@ void Vibration()
   }
 }
 ```
+
 ---
+
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ### Vibration Sensor Vibro Testing 振动传感器震感测试
-我找到两种类型的震动传感器，将其延长捆绑至手指背部，进行测试。
+I found two types of vibration sensors, strapped them to the back of my finger by extension and invited other users to test them together.
+我找到两种类型的震动传感器，将其延长捆绑至手指背部，邀请其他用户一起进行测试。
+
+
+
+https://user-images.githubusercontent.com/92038037/204218325-973b99e1-1e5f-4413-8a8f-653ea36336d2.mp4
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
+The final result was that one linear resonant actuator was the most effective, while the two sensors had too much vibration. The coreless vibration motor was more irritating than the former, and the testers said that the vibrations were uncomfortable.
+最终得出结果为一个linear resonant actuator的传感器效果最好，两个传感器震动过于明显。而coreless vibration motor的震动效果相比于前者比较刺激，测试者表示震感不舒适。
+
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
+
 # Final Arduino scource Code
 - [GitHub - scource Code]()
 ```C++
+#include <Wire.h>
+#include "MAX30105.h"
+#include "heartRate.h"
+MAX30105 particleSensor;
 
+//////////////////////////////////////
+
+const byte RATE_SIZE = 4; //Increase this for more averaging. 4 is good.
+byte rates[RATE_SIZE]; //Array of heart rates
+byte rateSpot = 0;
+long lastBeat = 0; //Time at which the last beat occurred
+
+char inChar;
+int vb = 6;//震动接口 3
+
+float beatsPerMinute;
+int beatAvg;
+
+//////////////////////////////////////
+
+void setup()
+{
+  pinMode(vb,OUTPUT);
+  digitalWrite(vb,LOW);
+  Serial.begin(38400);
+  Serial.println("Initializing...");
+
+  // Initialize sensor
+  if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) //Use default I2C port, 400kHz speed
+  {
+    Serial.println("MAX30105 was not found. Please check wiring/power. ");
+    while (1);
+  }
+  Serial.println("Place your index finger on the sensor with steady pressure.");
+
+  particleSensor.setup(); //Configure sensor with default settings
+  particleSensor.setPulseAmplitudeRed(0x0A); //Turn Red LED to low to indicate sensor is running
+  particleSensor.setPulseAmplitudeGreen(0); //Turn off Green LED
+}
+
+void loop()
+{
+  long irValue = particleSensor.getIR();
+
+  if (checkForBeat(irValue) == true)
+  {
+    //We sensed a beat!
+    long delta = millis() - lastBeat;
+    lastBeat = millis();
+
+    beatsPerMinute = 60 / (delta / 1000.0);
+
+    if (beatsPerMinute < 255 && beatsPerMinute > 20)
+    {
+      rates[rateSpot++] = (byte)beatsPerMinute; //Store this reading in the array
+      rateSpot %= RATE_SIZE; //Wrap variable
+
+      //Take average of readings
+      beatAvg = 0;
+      for (byte x = 0 ; x < RATE_SIZE ; x++)
+        beatAvg += rates[x];
+      beatAvg /= RATE_SIZE;
+    }
+  }
+
+  Serial.print(beatAvg);
+
+  if (irValue < 50000)
+    Serial.print(" No finger?");
+
+  Serial.println();
+
+  while(Serial.available())
+  {
+    inChar = Serial.read();
+    Vibration();
+    delay(100);
+    digitalWrite(vb,LOW);
+  }
+}
+
+void Vibration()
+{
+  if (inChar == '0')
+  {
+    //Serial.println("Vibration");
+    digitalWrite(vb,HIGH);
+    delay(50);
+  }
+}
 ```
 # Circuit Design
 ![VR test_bb](https://user-images.githubusercontent.com/92038037/196726611-084c0f8b-8234-409b-a964-b524f1703658.png)
