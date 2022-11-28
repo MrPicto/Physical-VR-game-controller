@@ -45,6 +45,15 @@ Based on the Arduino design and research. In order to design a VR boxing game, t
 The presence of a controller in VR games affects the player's gaming experience. Replacing the grips with hand models while allowing the hands to have movement changes makes the game more realistic.
 VR游戏出现手柄影响玩家的游戏体验。将手柄换成手部模型，同时让手部有动作变换让游戏更具真实性。
 
+## Blueprint 
+Bind the hand skeleton and attach the animation to the blueprint of the handle input.
+
+绑定手部骨骼，将动画连接到手柄input的蓝图中。
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![221128-TheBoxingRoom-Layout-14](https://user-images.githubusercontent.com/92038037/204279929-c9410ff8-4800-4820-b1e8-ffd470a35af5.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+
 ## Effects 效果
 In the process of changing the model, the orientation of the virtual world palm needs to be constantly adjusted to match the orientation of the real world palm, as follows.
 
@@ -90,6 +99,108 @@ Make the hand jump to the animation blueprint when interlocking the spheres
 
 # Bomb and wall making 炸弹与墙体的制作
 The same principle is used to make bombs and walls as for hitting balls, the difference is that points are deducted when the VRHand touches the bombs and walls. The principle of the scoring system will be explained later.
+
 与击打球同样的原理制作炸弹和墙体，不同的是在VRHand触碰炸弹与墙体的时候要扣分。后面会解释计分系统的原理。
-![BP_Bomb](https://user-images.githubusercontent.com/92038037/204274618-8211ccc2-3a8b-4e11-a945-bd3b84c47811.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![BP_Bomb](https://user-images.githubusercontent.com/92038037/204274618-8211ccc2-3a8b-4e11-a945-bd3b84c47811.png)
+![HighresScreenshot00002](https://user-images.githubusercontent.com/92038037/204276529-980f8191-3984-40bb-bec5-62aaebf3e6e7.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+# Launcher 发射器
+## Principle 原理
+In the UE I set up 6 launch points and the spheres/bombs/walls will be launched in these 6 channels.
+
+在UE中我设置了6个发射点，球体/炸弹/墙体会在这6个通道中发射出来。
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![221128-TheBoxingRoom-Layout-15](https://user-images.githubusercontent.com/92038037/204280546-8218afdd-b786-43c8-b2b9-feb62ff7c402.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![09F7C8F6-1DF7-42FD-B7F5-05FA9D9C8009](https://user-images.githubusercontent.com/92038037/204280586-1de0c8d7-1a3b-4402-8966-30b2cc33cd9e.png)
+
+## Blueprint
+Once this system has been written, I will set up a list of launches in "Details" for each ball and its launch position. This blueprint will generate one sphere at a time, and this blueprint will keep cycling. The list of balls I have set up will be launched one by one.
+
+这个系统写完之后，我会在“细节”设置每一个出球以及发射位置，组成一个发射列表。这个蓝图一次会生成一个球体，此蓝图会一直循环。将我设置的出球名单一个个发射出。
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![发射器1](https://user-images.githubusercontent.com/92038037/204280742-77b92d40-bda1-4ea0-a8a2-14da6d732480.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+Here is a blueprint of the sphere launch interval, the value affected by heart rate is the time interval between launches
+
+这里是球体发射间隔的蓝图，心率影响的数值就是发球的时间间隔
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![发射器2](https://user-images.githubusercontent.com/92038037/204286025-9d5f1926-c873-4fae-bab0-e4ebe19fb462.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+# 计分系统
+## Principle 原理
+
+The game system will know how many spheres are to be played in total, for example if I set 200 spheres, then the total number of points is 2000. If a sphere is not hit 10 points will be deducted. So how does the game know that the player hasn't reached the spheres?
+It is because I set up an invisible wall behind the player. If a sphere is detected, it means the player didn't hit that sphere, the combo will clear and 10 points will be deducted. This data is then sent to the blueprint in EndUI at the end of the game, presenting the final score.
+Similarly when a hand comes into contact with a bomb, it is sent to the GameUI blueprint to count the points together.
+
+游戏系统会知道总共要出多少球体，比如我设置了200个球体，那么总积分就是2000分。如果没有击中一个球就会扣10分。那么游戏是怎么知道玩家没有达到球体呢？
+是因为我在玩家的背后设置一个隐形墙。如果检测到球体，就说明玩家没有击中这个球体，combo会清零，积分会扣10分。然后这个数据会在游戏结束后发送到EndUI的蓝图中，呈现最后的积分。
+同样当手部接触到炸弹，也会发送到EndUI的蓝图中一起算分数。
+
+## Blueprint
+GameUI's are responsible for scoring and sending scores to EndUI once they have been calculated
+
+GameUI的负责计分，分数计算完毕发送到EndUI
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![计分BP1](https://user-images.githubusercontent.com/92038037/204290862-69d4bf54-b4bc-493d-a8db-a3de10b7107f.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+
+
+# Scene 场景制作
+## Start Level
+The player will enter this screen first and will first see their heart rate values and get used to the virtual world. When ready to start, place your hand on the UI platform and the door will automatically open to enter the game interface
+
+玩家会先进入这个界面，会先看到自己的心率数值，适应虚拟世界。准备开始时，将手放在UI平台上，门会自动打开进入到游戏界面
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![HighresScreenshot00002 (2)](https://user-images.githubusercontent.com/92038037/204285259-43079b2d-3f6c-404a-b02a-3fc40e030e8b.png)
+![HighresScreenshot00004 (2)](https://user-images.githubusercontent.com/92038037/204285343-7e9bcc3f-f52d-41f8-8bdc-9d5715d1ad05.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+## Game Level
+This is the game interface
+
+此为正式的游戏界面
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![HighresScreenshot00008](https://user-images.githubusercontent.com/92038037/204288788-e8865aef-e858-48a7-ac67-d91f5cf73fd5.png)
+![HighresScreenshot00006](https://user-images.githubusercontent.com/92038037/204288840-3d8818c7-80e9-490a-bc27-5baf67680eb7.png)
+![HighresScreenshot00007 (2)](https://user-images.githubusercontent.com/92038037/204288862-d6d6a374-eb88-4820-a5c9-a4b3d2dfe72d.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+
+---
+---
+
+# Unreal Engine Link to Arduino
+## Plugins
+This plugin transfers data from Arduino to UE
+
+这个插件能将Arduino的数据传输到UE
+- Link：https://forums.unrealengine.com/t/new-free-arduino-serial-communication-plugin-serial-com-v3-fork-from-ue4duino/265486
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![serial_com_fork_03](https://user-images.githubusercontent.com/92038037/204292841-7222aca1-94f2-4a16-9140-619eb0bf1043.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+## Link to Arduino BP 链接Arduino的BP
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![心率链接BP](https://user-images.githubusercontent.com/92038037/204293375-d14a8333-a644-4a1a-bf1b-6ef5649a48b6.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+## Heart rate affects ball speed BP 心率影响出球速率的BP
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![心率算法1](https://user-images.githubusercontent.com/92038037/204293471-236a51b4-0094-4a2f-aaa2-edb74276170a.png)
+![心率算法2](https://user-images.githubusercontent.com/92038037/204293489-7699866b-41b3-4bd9-b3d2-8ad77348cfdb.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+
+## UE transmits vibration data back to Arduino
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![震动BP](https://user-images.githubusercontent.com/92038037/204293611-c7bd508f-cf59-4251-a825-da57d8bd5871.png)
+![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
+
+
