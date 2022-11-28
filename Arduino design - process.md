@@ -3,6 +3,7 @@
 In the original arduino design idea, the heart rate sensor reads the user's heart rate every second and transmits the data to the PC, while also receiving the string "0" from the computer to start the vibration for 0.5 seconds.
 
 The data is transmitted via a Bluetooth sensor. Using the smaller Arduino Nano and the battery, the Arduino device can be made into a wearable sensor. But this design idea was modified later in the step-by-step tests, for reasons that will be explained at the end.
+
 在最初arduino的设计思路中，心率传感器每秒都会读取用户心率将数据传输到PC中，同时也会接收电脑发送的字符串“0”，来启动震动0.5秒。数据通过由蓝牙传感器进行传递，并使用体型较小的Arduino Nano和电池。Arduino设备就可以做成穿戴式传感器。但是这个在后面一步步的测试中修改掉了这个设计思路，原因会在最后说明。
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ![Target](https://user-images.githubusercontent.com/92038037/204204410-50c088f9-62d6-4387-aeff-9df4c787888b.png)
