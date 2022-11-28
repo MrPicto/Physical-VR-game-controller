@@ -1,6 +1,8 @@
 
 ![221128-TheBoxingRoom-Layout-01](https://user-images.githubusercontent.com/92038037/204174523-18628353-2ad3-4629-89e7-7948f7c97301.png)
 
+
+
 # My project
 For this project designed a VR game with Arduino sensors.
 
@@ -13,10 +15,14 @@ The players will wear vibration sensors on the fingers of both hands and a heart
 
 
 
+
+
 # Why I chose this subject？
 The reason for making this interactive game stems from the existing problems with VR games on the market. Many VR games have excellent graphics and tutorials, but the difficulty of the exercise cannot be adjusted. Users are unaware of their true aerobic capacity range, which results in the difficulty of the virtual sport not being accurately adapted to the user's physical ability. Also, the hand controllers only vibrate in the palm when they hit objects in the virtual world. And this kind of feedback also reduces the interactivity of the game.
 
 ![2-02](https://user-images.githubusercontent.com/92038037/204177139-a4df1809-a653-4c2e-97f8-fa34e33ac400.png)
+
+
 
 
 # What I would do？
@@ -26,6 +32,8 @@ To solve these problems, I designed a VR game with Arduino sensors.
 I used Arduino to sense the user's heart rate. As soon as the computer receives the data, it will calculate the speed of the ball in real-time and adjust the game's difficulty. In addition, when the player hits the ball, the sensor vibrates simultaneously. Players will experience an actual vibration from the hand controllers while hitting the balls, which makes the training more immersive.
 
 ![Arduino Xmind](https://user-images.githubusercontent.com/92038037/204180647-da726d3e-bd2e-4a99-8fd8-4f5146884650.png)
+
+
 
 
 # Final：4 submissions 
@@ -40,6 +48,10 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
 
 ### A weblog of the process
 - 
+- https://github.com/MrPicto/Physical-VR-game-controller/blob/main/VR%20Game%20design%20-%20process.md
+
+
+
 # Reference
 ### The modular used in the game
 - VR Hand: https://www.unrealengine.com/marketplace/en-US/product/handy-hands-pack-vr-hands-megapack
