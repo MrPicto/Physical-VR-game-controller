@@ -153,7 +153,7 @@ After testing the front of the wrist, the back of the wrist and the fingertips, 
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
 # Q3：What type of vibration modules should used? How many? 震动模块使用什么类型？使用几个？  
-### Vibration Coding 震动代码
+### Vibration test Coding 震动代码
 In the test, the arduino vibrates the motor when the string "1" is sent. This is to feel the difference between the different types and amounts of vibrations.
 测试内容，arduino在发送字符串“1”的时候，震动马达震动。以此感受不容类型和不同数量的震感差距。
 ```C++
@@ -212,7 +212,7 @@ https://user-images.githubusercontent.com/92038037/204218325-973b99e1-1e5f-4413-
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
 # Final Arduino Code
-- [GitHub - Scource Code]()
+- [GitHub - Scource Code](https://github.com/MrPicto/Physical-VR-game-controller/tree/main/HeartRate_Vibration_Nano)
 ```C++
 #include <Wire.h>
 #include "MAX30105.h"
