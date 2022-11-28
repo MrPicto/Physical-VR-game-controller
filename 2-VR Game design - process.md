@@ -176,28 +176,39 @@ This is the game interface
 
 # Unreal Engine Link to Arduino
 ## Plugins
-This plugin transfers data from Arduino to UE
+The SerialCOM plugin correlates data from the Arduino's sensors with Unreal Engine blueprints to achieve real-world interaction. The principle is to pass the Arduino's serial data into the Unreal Engine and write the data to manipulate objects in the game. For example, real-life buttons can switch on and off lights or change colours in the game.
 
-这个插件能将Arduino的数据传输到UE
+SerialCOM插件将Arduino所属传感器的数据与Unreal Engine蓝图进行关联，从而达到虚实交互。原理是将Arduino的串口数据传入到Unreal Engine中，对数据进行编写去操控游戏中的物件。比如现实中的按钮可以开关游戏中的灯光或者改变颜色。
 - Link：https://forums.unrealengine.com/t/new-free-arduino-serial-communication-plugin-serial-com-v3-fork-from-ue4duino/265486
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 ![serial_com_fork_03](https://user-images.githubusercontent.com/92038037/204292841-7222aca1-94f2-4a16-9140-619eb0bf1043.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 ## Link to Arduino BP 链接Arduino的BP
+The Arduino data is first verified to be transferred to the UE, then the heart rate values are set into a Widget's text so that the BeginUI and GameUI can present the user heart rate data. The player can then see the heart rate values in both game screens (Start Level and Game Level).
+
+首先先验证Arduino数据是否传输到UE中，然后将心率数值设置到一个Widget的text中，让BeginUI和GameUI能呈现用户心率数据。玩家这样可以在两个游戏界面（Start Level和Game Level）都能看到心率数值。
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 ![心率链接BP](https://user-images.githubusercontent.com/92038037/204293375-d14a8333-a644-4a1a-bf1b-6ef5649a48b6.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 ## Heart rate affects ball speed BP 心率影响出球速率的BP
+#### 原理
+Set the time interval between balls coming out of the launcher by different heart rate intervals. I set the heart rate detectable range from 0-200BPM and the ball time interval from 2-0s (flashback) for different heart rate zones. This way the lower the heart rate the faster the launcher will be and the higher the heart rate the slower the launcher will be.
+
+通过不同的心率区间设置发射器出球的时间间隔。我将心率可检测范围设置在0-200BPM，不同心率区间的球体时间间隔从2-0s（倒叙）。这样心率越低发球速度越快，心率越高发球速度越慢。
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+
 ![心率算法1](https://user-images.githubusercontent.com/92038037/204293471-236a51b4-0094-4a2f-aaa2-edb74276170a.png)
 ![心率算法2](https://user-images.githubusercontent.com/92038037/204293489-7699866b-41b3-4bd9-b3d2-8ad77348cfdb.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 
 ## UE transmits vibration data back to Arduino
+The UE sends the string "0" to the Arduino when the VRHand overlaps the Vibration sphere of the ball, and the Arduino vibrates for 0.5 seconds when it receives the "0".
+VRHand 在接触到球体的Vibration sphere时，UE会发送字符串“0”到Arduino，Arduino在收到“0”时会震动0.5秒。
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
+![221128-TheBoxingRoom-Layout-13](https://user-images.githubusercontent.com/92038037/204309217-e09654d1-b5de-469c-84dc-7519ddeb58ac.png)
 ![震动BP](https://user-images.githubusercontent.com/92038037/204293611-c7bd508f-cf59-4251-a825-da57d8bd5871.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
