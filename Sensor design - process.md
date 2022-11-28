@@ -145,10 +145,15 @@ void loop()
   Serial.println();
 }
 ```
+### Testing different parts of the hand 测试手部不同部位
+在对手腕正面，手腕背面，指尖进行测试之后，得出结论为指尖的数据最为稳定
+![221128-TheBoxingRoom-Layout-06](https://user-images.githubusercontent.com/92038037/204210470-6bbf2869-7999-419b-ae7c-c891884edc9a.png)
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
-# frizting
+# Q3：What type of vibration modules should used? How many? 震动模块使用什么类型？使用几个？  
+
+
+# Circuit Design
 ![VR test_bb](https://user-images.githubusercontent.com/92038037/196726611-084c0f8b-8234-409b-a964-b524f1703658.png)
 ![VR test fzz_ - Fritzing -  面包板视图  2022_10_17 9_11_13](https://user-images.githubusercontent.com/92038037/196726639-37b4a491-2987-4289-b728-eafb02e635e0.png)
 
-# test
-## Vibration test
