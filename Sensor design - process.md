@@ -302,9 +302,14 @@ void Vibration()
 # Circuit Design 电路设计
 
 ### Battery 电池
+The Arduino is currently tested at 5V and to power the wearable I compared AA, AAA and coin cell batteries.
+In the end, I chose the CR2032 type of coin cell battery. Because of their small size, two coin cell batteries can deliver 9V, and with the addition of a mini560 buck module, the 9V can be reduced to 5V, and the batteries and buck module together are even smaller than two AAA batteries.
 Arduino目前测试的电压为5V。为了给穿戴设备配备电源，我比较了AA电池、AAA电池与纽扣电池。
 最后，选择了CR2032型号的纽扣电池。因为其体积小，2个纽扣电池的电压可以达到9V。再增加一个mini560降压模块，可以将9v降低至5v。而电池与降压模块合在一起的体积甚至比两节AAA电池还要小。
 
+
+---
 # Reason for final circuit adjustment 最终电路调整原因
-之后在Arduino与Unreal Engine的链接测试中蓝牙链接不稳定会频繁连接失败，
+Later, during the testing of the link between Arduino and Unreal Engine, I found that the Unreal Engine plugin (SerialCOM) for linking to Arduino did not support Bluetooth links, only data port(COM). so I eventually changed the design of the project.
+之后在Arduino与Unreal Engine的链接测试中发现现有的Unreal Engine链接Arduino的插件（SerialCOM）不支持蓝牙链接，仅支持数据串口链接，所以最终更改了项目的设计方案。
 
