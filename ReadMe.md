@@ -41,7 +41,7 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
 ### A weblog of the process
 - 
 # Reference
-### Modular used in the game
+### The modular used in the game
 - VR Hand: https://www.unrealengine.com/marketplace/en-US/product/handy-hands-pack-vr-hands-megapack
 - UI: https://www.unrealengine.com/marketplace/en-US/product/holovfx-vol2
 - Modular：https://assetstore.unity.com/packages/3d/environments/sci-fi/modular-sci-fi-interior-pack-164386
