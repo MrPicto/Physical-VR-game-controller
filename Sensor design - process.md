@@ -145,14 +145,61 @@ void loop()
   Serial.println();
 }
 ```
+---
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ### Testing different parts of the hand 测试手部不同部位
-在对手腕正面，手腕背面，指尖进行测试之后，得出结论为指尖的数据最为稳定
+After testing the front of the wrist, the back of the wrist and the fingertips, it was concluded that the fingertip data was the most stable.
+在对手腕正面，手腕背面，指尖进行测试之后，得出结论为指尖的数据最为稳定。
 ![221128-TheBoxingRoom-Layout-06](https://user-images.githubusercontent.com/92038037/204210470-6bbf2869-7999-419b-ae7c-c891884edc9a.png)
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
 # Q3：What type of vibration modules should used? How many? 震动模块使用什么类型？使用几个？  
+### Vibration Coding 震动代码
+In the test, the arduino vibrates the motor when the string "1" is sent. This is to feel the difference between the different types and amounts of vibrations.
+测试内容，arduino在发送字符串“1”的时候，震动马达震动。以此感受不容类型和不同数量的震感差距。
+```C++
+char inChar;
+int vb = 13;//震动接口 3
 
+void setup() {
+  pinMode(vb,OUTPUT);
+  digitalWrite(vb,LOW);
+  Serial.begin(38400);
+}
 
+void loop() {
+  while(Serial.available())
+  {
+    inChar = Serial.read();
+    Vibration();
+    delay(100);
+    digitalWrite(vb,LOW);
+  }
+}
+
+void Vibration()
+{
+  if (inChar == '1')
+  {
+    Serial.println("Arduino says Hi!");
+    digitalWrite(vb,HIGH);
+    delay(500);
+  }else if(inChar == '0')
+  {
+    Serial.println("Arduino says Bye!");
+    digitalWrite(vb,LOW);
+  }
+}
+```
+---
+![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
+### Vibration Sensor Vibro Testing 振动传感器震感测试
+我找到两种类型的震动传感器，将其延长捆绑至手指背部，进行测试。
+# Final Arduino scource Code
+- [GitHub - scource Code]()
+```C++
+
+```
 # Circuit Design
 ![VR test_bb](https://user-images.githubusercontent.com/92038037/196726611-084c0f8b-8234-409b-a964-b524f1703658.png)
 ![VR test fzz_ - Fritzing -  面包板视图  2022_10_17 9_11_13](https://user-images.githubusercontent.com/92038037/196726639-37b4a491-2987-4289-b728-eafb02e635e0.png)
