@@ -41,13 +41,16 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
 ### A weblog of the process
 - 
 # Reference
-Model materials used in the game
-- 
-- 
-- 
+### Modular used in the game
+- VR Hand: https://www.unrealengine.com/marketplace/en-US/product/handy-hands-pack-vr-hands-megapack
+- UI: https://www.unrealengine.com/marketplace/en-US/product/holovfx-vol2
+- Modular：https://assetstore.unity.com/packages/3d/environments/sci-fi/modular-sci-fi-interior-pack-164386
+- Modular：https://www.unrealengine.com/marketplace/en-US/product/sci-fi-rooms-and-corridors-interior-kit
+- Modular：https://www.unrealengine.com/marketplace/en-US/product/sci-fi-modular-environment
 
-The music used in the game
-- Start Music:Transport - Urban Love
+### The music used in the game
+- Start Music: Transport - Urban Love
 - Fit Music：Balearic Pumping - Jaroslav Beck
 - End Music：Eleven - Ronan
-
+- Glass Broken Sound Effect: https://www.youtube.com/watch?v=6lup09niGyM&list=LL&index=27
+- UI Sound Effect: https://www.youtube.com/watch?v=8qokt65f20o 
