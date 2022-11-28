@@ -47,8 +47,8 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
   [Google Drive - The Boxing Room(UE4.27)](https://drive.google.com/drive/folders/1B8dbjQIK9kxyCqDM_fr1tRHwuJrnuDv-?usp=sharing)
 
 ### A weblog of the process
-- 1. Sensor Design Process: https://github.com/MrPicto/Physical-VR-game-controller/blob/main/Sensor%20design%20-%20process.md
-- 2. VR Game Design Process: https://github.com/MrPicto/Physical-VR-game-controller/blob/main/VR%20Game%20design%20-%20process.md
+- Frist-Sensor Design Process: https://github.com/MrPicto/Physical-VR-game-controller/blob/main/Sensor%20design%20-%20process.md
+- Second-VR Game Design Process: https://github.com/MrPicto/Physical-VR-game-controller/blob/main/VR%20Game%20design%20-%20process.md
 
 
 
