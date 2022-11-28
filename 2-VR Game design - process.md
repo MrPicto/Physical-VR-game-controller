@@ -40,7 +40,7 @@ Based on the Arduino design and research. In order to design a VR boxing game, t
   - Vibration blueprint
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
-# 手部模型更换
+# Hand model replacement 手部模型更换
 ## Purpose 目的 
 The presence of a controller in VR games affects the player's gaming experience. Replacing the grips with hand models while allowing the hands to have movement changes makes the game more realistic.
 VR游戏出现手柄影响玩家的游戏体验。将手柄换成手部模型，同时让手部有动作变换让游戏更具真实性。
@@ -130,7 +130,7 @@ Here is a blueprint of the sphere launch interval, the value affected by heart r
 ![发射器2](https://user-images.githubusercontent.com/92038037/204286025-9d5f1926-c873-4fae-bab0-e4ebe19fb462.png)
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
-# 计分系统
+# Scoring system 计分系统
 ## Principle 原理
 
 The game system will know how many spheres are to be played in total, for example if I set 200 spheres, then the total number of points is 2000. If a sphere is not hit 10 points will be deducted. So how does the game know that the player hasn't reached the spheres?
@@ -172,7 +172,6 @@ This is the game interface
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 
 
----
 ---
 
 # Unreal Engine Link to Arduino
