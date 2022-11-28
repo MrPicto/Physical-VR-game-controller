@@ -192,19 +192,20 @@ void Vibration()
 }
 ```
 
----
 
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 ### Vibration Sensor Vibro Testing 振动传感器震感测试
 I found two types of vibration sensors, strapped them to the back of my finger by extension and invited other users to test them together.
+
 我找到两种类型的震动传感器，将其延长捆绑至手指背部，邀请其他用户一起进行测试。
 
 
 
 https://user-images.githubusercontent.com/92038037/204218325-973b99e1-1e5f-4413-8a8f-653ea36336d2.mp4
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
-The final result was that one linear resonant actuator was the most effective, while the two sensors had too much vibration. The coreless vibration motor was more irritating than the former, and the testers said that the vibrations were uncomfortable.
-最终得出结果为一个linear resonant actuator的传感器效果最好，两个传感器震动过于明显。而coreless vibration motor的震动效果相比于前者比较刺激，测试者表示震感不舒适。
+The final result is that one linear resonant actuator works best, while two sensors cause too much vibration. According to the testers, the coreless vibration motor has a more intense vibration effect than the former, which does not feel like hitting the ball and is uncomfortable.
+
+最终得出结果为一个linear resonant actuator的传感器效果最好，两个传感器就会导致震动过于明显。根据测试者反馈coreless vibration motor的震动效果相比于前者比较激烈，不像是击打球的手感，震感不舒适。
 
 ![space](https://user-images.githubusercontent.com/92038037/204201699-c11c6809-0efb-486c-8dff-8ceeb41e9ff4.png)
 
@@ -224,7 +225,7 @@ byte rateSpot = 0;
 long lastBeat = 0; //Time at which the last beat occurred
 
 char inChar;
-int vb = 6;//震动接口 3
+int vb = 6;//Vibration
 
 float beatsPerMinute;
 int beatAvg;
@@ -278,11 +279,6 @@ void loop()
 
   Serial.print(beatAvg);
 
-  if (irValue < 50000)
-    Serial.print(" No finger?");
-
-  Serial.println();
-
   while(Serial.available())
   {
     inChar = Serial.read();
@@ -302,7 +298,13 @@ void Vibration()
   }
 }
 ```
-# Circuit Design
-![VR test_bb](https://user-images.githubusercontent.com/92038037/196726611-084c0f8b-8234-409b-a964-b524f1703658.png)
-![VR test fzz_ - Fritzing -  面包板视图  2022_10_17 9_11_13](https://user-images.githubusercontent.com/92038037/196726639-37b4a491-2987-4289-b728-eafb02e635e0.png)
+
+# Circuit Design 电路设计
+
+### Battery 电池
+Arduino目前测试的电压为5V。为了给穿戴设备配备电源，我比较了AA电池、AAA电池与纽扣电池。
+最后，选择了CR2032型号的纽扣电池。因为其体积小，2个纽扣电池的电压可以达到9V。再增加一个mini560降压模块，可以将9v降低至5v。而电池与降压模块合在一起的体积甚至比两节AAA电池还要小。
+
+# Reason for final circuit adjustment 最终电路调整原因
+之后在Arduino与Unreal Engine的链接测试中蓝牙链接不稳定会频繁连接失败，
 
