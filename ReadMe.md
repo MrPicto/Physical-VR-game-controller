@@ -38,7 +38,7 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
 
 # Final：4 submissions 
 ### An oral project report
-- [YouTubu - Project Video](https://www.youtube.com/)
+- [YouTubu - Project Video](https://youtu.be/nJqiUz-IT5w)
 ### A written thesis describing the project
 - 
 ### A project with the code
