@@ -40,7 +40,7 @@ I used Arduino to sense the user's heart rate. As soon as the computer receives 
 ### An oral project report
 - [YouTubu - Project Video](https://youtu.be/nJqiUz-IT5w)
 ### A written thesis describing the project
-- 
+- [GitHub - EssayPDF](https://github.com/MrPicto/Physical-VR-game-controller/blob/main/Application%20of%20Arduino%20perceptron%20in%20virtual%20reality%20sport_HanlinZhang_21004795-20m.pdf)
 ### A project with the code
 - Arduino:
   [GitHub-Scource Code](https://github.com/MrPicto/Physical-VR-game-controller/tree/main/HeartRate_Vibration_Nano)
