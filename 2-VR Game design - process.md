@@ -61,6 +61,13 @@ In the process of changing the model, the orientation of the virtual world palm 
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
 ![IMG_6516](https://user-images.githubusercontent.com/92038037/204267824-a56b0827-c282-4223-a915-a03575222797.jpg)
 
+## Handle vibration effect 手柄震动效果
+#### Hit Ball Haptic
+![HitBall_Haptic](https://user-images.githubusercontent.com/92038037/204439451-a6a06926-2bfa-4538-89bb-799008fbd185.png)
+#### Bomb Haptic
+![Bomb_Haptic](https://user-images.githubusercontent.com/92038037/204439458-d544b32b-760b-4090-8ae0-b893e5cc676e.png)
+
+
 ### Copyright
 - VR Hand： https://www.unrealengine.com/marketplace/en-US/product/handy-hands-pack-vr-hands-megapack
 ![space](https://user-images.githubusercontent.com/92038037/204270709-a69fe2d9-c077-492d-9d18-c3c3fbbc4617.png)
